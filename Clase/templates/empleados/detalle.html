@@ -1,0 +1,25 @@
+{% extends 'empleados/base.html' %}
+{% block title %}Detalle del empleado{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card shadow-sm">
+            <div class="card-header bg-dark text-white">
+                <h4 class="mb-0">Detalle del empleado</h4>
+            </div>
+            
+            <div class="card-body">
+                <p><strong>ID:</strong> {{ empleado.id }}</p>
+                <p><strong>Nombre:</strong> {{ empleado.nombre }}</p>
+                <p><strong>Apellido:</strong> {{ empleado.apellido }}</p>
+                <p><strong>Sueldo:</strong> ${{ empleado.sueldo|floatformat:2 }}</p>
+                <hr>
+                <a href="{% url 'editar_empleado' empleado.pk %}" class="btn btn-primary">Editar</a>
+                <a href="{% url 'lista_empleados' %}" class="btn btn-secondary">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
